@@ -11,7 +11,16 @@
 
 `BMS-Mainboard.epro` 包含可编辑原理图和 PCB，可导入嘉立创EDA。当前固件发布范围为可独立验证的 BMS 源码，540 项主机检查通过。STM32 完整固件构建还依赖原工程的 STM32 SPL/CMSIS、启动文件与 LCD 后端。仓库保留默认关闭的硬件输出许可。主机测试中的模拟许可设置仅用于测试程序。
 
+## 复现与验证
+
+| 目标 | 入口 | 验证状态 |
+|---|---|---|
+| 查看电路设计 | [嘉立创EDA 源工程](BMS-Mainboard.epro) · [PCB 渲染](docs/pcb-render.png) | 提供可编辑原理图与 PCB |
+| 查看保护与控制逻辑 | [BMS 模块](Hardware/BMS/) · [主程序](USER/main.c) | 硬件输出许可默认关闭 |
+| 复跑主机检查 | [测试入口](tools/test_firmware.py) · [测试用例](tests/) | 已有 540 项主机检查通过记录 |
+| 构建 STM32 目标固件 | 原 STM32 工程环境 | 需补齐 SPL/CMSIS、启动文件与 LCD 后端 |
+
 ## 许可
 
-自有固件与测试使用 GPL-3.0-only。LibreSolar 衍生 OCV 数据保留 Apache-2.0 与来源说明，详见 Hardware/BMS/THIRD_PARTY_NOTICES.md。自有硬件设计使用 CERN-OHL-S-2.0。工程中随附的第三方器件库资料保留原许可。完整许可证文本在 LICENSES/。
+自有固件与测试使用 GPL-3.0-only。LibreSolar 衍生 OCV 数据保留 Apache-2.0 与来源说明，详见[第三方声明](Hardware/BMS/THIRD_PARTY_NOTICES.md)。自有硬件设计使用 CERN-OHL-S-2.0。工程中随附的第三方器件库资料保留原许可。完整许可证文本在 [LICENSES/](LICENSES/)。
 
